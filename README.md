@@ -1,5 +1,5 @@
 # groupcache-example
-The project is built on top of of [groupcache-db-experiment](https://github.com/capotej/groupcache-db-experiment) with etcd[https://github.com/coreos/etcd] support.
+The project is built on top of of [groupcache-db-experiment](https://github.com/capotej/groupcache-db-experiment) with [etcd](https://github.com/coreos/etcd) support.
 
 This project simulates a scenario wherein a few frontends running [groupcache](http://github.com/golang/groupcache) are fronting a slow database. For more detail,  See capotej [blog post](http://www.capotej.com/blog/2013/07/28/playing-with-groupcache/) about it for more details.
 
@@ -11,6 +11,11 @@ The following commands will set up this topology:
 
 1. ```git clone git@github.com:senarukana/groupcache-example```
 2. ```sh build.sh```
+
+### Start etcd
+1.  ```/$(ETCDIR)/bin/etcd
+
+The default port of etcd is 4001
 
 ### Start DB server
 
@@ -24,6 +29,7 @@ This starts a delibrately slow k/v datastore on :8000
 2. ```./cacheserver -port 8001```
 3. ```./cacheserver -port 8002```
 4. ```./cacheserver -port 8003```
+You could use -etcd-addresses to assign the port of your etcd server.
 
 ### Use the CLI to set/get values
 
